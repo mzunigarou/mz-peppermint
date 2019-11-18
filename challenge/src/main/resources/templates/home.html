@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Rock, Paper, Scissors</title>
+<link rel="stylesheet" href="/main.css" />
+</head>
+<body>
+	<form method="post" action="/play">
+		<h1>Enter Your Name:</h1>
+		<input type="text" name="userName" />
+		<h1>Select Player Mode:</h1>
+		<select name="firstPlayerMode">
+			<option value="4">Randomly</option>
+			<option value="1">Rock</option>
+		</select>
+		<input type="submit" value="Play" />
+	</form>
+</body>
+</html>

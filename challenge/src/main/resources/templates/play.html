@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Rock, Paper, Scissors</title>
+<link rel="stylesheet" href="/main.css" />
+<link rel="stylesheet" href="/jquery.dataTables.min.css" />
+<script src="/jquery-3.4.1.js"></script>
+<script src="/jquery.dataTables.min.js"></script>
+<script src="/playRound.js"></script>
+</head>
+<body>
+	<input type="hidden" id="sessionId" th:value="${session.sessionId}" />
+	<input type="hidden" id="firstPlayerMode" th:value="${session.firstPlayerMode}" />
+	<input type="hidden" id="secondPlayerMode" th:value="${session.secondPlayerMode}" />
+	<h1 th:text="'Hello ' + ${session.userName} + '! You are playing: ' + ((${session.firstPlayerMode} == '4') ? 'Randomly' : 'Rock')">User</h1>
+	<h2 id="roundsPlayed">0</h2>
+	<button id="playButton">Play Round!</button>
+<!-- 	<form method="post" action="/restart"><input type="submit" value="Restart Game" /></form> -->
+	<button id="restartButton">Restart Game!</button>
+	<h2 id="winner"></h2>
+	<table id="tableResults" class="display nowrap" style="width: 50%">
+		<thead>
+			<tr>
+				<th>First Player</th>
+				<th>Second Player</th>
+				<th>Resulting Round</th>
+			</tr>
+		</thead>
+		<tbody id="tableTBody"></tbody>
+	</table>
+</body>
+</html>
