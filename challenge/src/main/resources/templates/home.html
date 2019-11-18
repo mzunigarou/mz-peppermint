@@ -6,15 +6,23 @@
 <link rel="stylesheet" href="/main.css" />
 </head>
 <body>
-	<form method="post" action="/play">
-		<h1>Enter Your Name:</h1>
-		<input type="text" name="userName" />
-		<h1>Select Player Mode:</h1>
-		<select name="firstPlayerMode">
-			<option value="4">Randomly</option>
-			<option value="1">Rock</option>
-		</select>
-		<input type="submit" value="Play" />
-	</form>
+	<div class="mainDiv" align="center">
+		<form method="post" action="/play">
+			<h2>Enter Your Name:</h2>
+			<input type="text" name="userName" />
+			<h2>Select Player Mode:</h2>
+			<select name="firstPlayerMode">
+				<option value="4">Randomly</option>
+				<option value="1">Rock</option>
+			</select>
+			<div class="buttonDiv">
+				<input type="submit" value="Enter to Play!" />
+			</div>
+		</form>
+		<hr>
+		<p>
+			<a href="/stats">View Stats</a>
+		</p>
+	</div>
 </body>
 </html>

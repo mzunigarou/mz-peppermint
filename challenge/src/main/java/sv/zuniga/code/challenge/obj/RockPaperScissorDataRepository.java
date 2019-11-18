@@ -13,6 +13,9 @@ public interface RockPaperScissorDataRepository extends CrudRepository<RockPaper
 	@RestResource(path = "bySessionId")
 	public Iterable<RockPaperScissor> findBySessionId(@Param("sessionId") String sessionId);
 
+	@RestResource(path = "bySessionIdAndRoundState")
+	public Iterable<RockPaperScissor> findBySessionIdAndRoundState(@Param("sessionId") String sessionId, @Param("roundState") String roundState);
+	
 	@Transactional
 	public void deleteBySessionId(String sessionId);
 }

@@ -1,18 +1,10 @@
-var renderValue = function(value) {
-	var textValue = "Unknown";
-	if (value == "1") textValue = "Rock";
-	else if (value == "2") textValue = "Paper";
-	else if (value == "3") textValue = "Scissor";
-	return textValue;
-};
-
 $(document).ready(function() {
 	var theTable = $("#tableResults").DataTable({
 		paging: false,
 		searching: false,
 		info: false,
 		ajax: {
-			url: "/challenge-api/rockPaperScissors/search/bySessionId?sessionId=" + $("#sessionId").val(),
+			url: "/challenge-api/rockPaperScissors/search/bySessionIdAndRoundState?sessionId=" + $("#sessionId").val() + "&roundState=1",
 			type: "GET",
 			dataType: "json",
 			success: function(result) {
@@ -23,7 +15,7 @@ $(document).ready(function() {
 						"<tr>"
 							+ "<td>" + renderValue(this.firstPlayer) + "</td>"
 							+ "<td>" + renderValue(this.secondPlayer) + "</td>"
-							+ "<td>" + this.resultingRound + "</td>"
+							+ "<td>" + renderResultValue(this.resultingRound) + "</td>"
 						+ "</tr>";
 					rounds = i + 1;
 				});
@@ -43,16 +35,17 @@ $(document).ready(function() {
 				sessionId: $("#sessionId").val(),
 				firstPlayer: x1,
 				secondPlayer: x2,
-				resultingRound: ""
+				resultingRound: "",
+				roundState: "1"
 			})
 		}).then(function(data) {
-			$("#winner").text(data.resultingRound);
+			$("#winner").text(renderResultValue(data.resultingRound));
 			theTable.ajax.reload();
 		});
 	});
 	$("#restartButton").click(function() {
 		$.post("/restart", function(data) {
-			if (console) console.log(data.message);
+			if (console) console.log(JSON.parse(data).message);
 			theTable.ajax.reload();
 		});
 	});

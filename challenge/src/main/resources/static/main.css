@@ -1,1 +1,30 @@
 @charset "ISO-8859-1";
+
+a {
+	font-size: large;
+}
+
+.mainDiv {
+	width: 50%;
+}
+
+table#tableStats {
+	text-align: justify;
+	border-spacing: 15px;
+}
+
+table#tableStats div {
+	font-weight: bold;
+}
+
+h2#winner {
+	color: orange;
+}
+
+.playerMode {
+	color: lightgreen;
+}
+
+.buttonDiv {
+	margin: 15px;
+}

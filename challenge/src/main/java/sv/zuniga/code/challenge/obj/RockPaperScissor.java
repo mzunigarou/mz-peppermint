@@ -13,6 +13,7 @@ public class RockPaperScissor {
 	private String firstPlayer;
 	private String secondPlayer;
 	private String resultingRound;
+	private String roundState;
 
 	public RockPaperScissor() {
 
@@ -58,18 +59,26 @@ public class RockPaperScissor {
 		this.resultingRound = calculateResult(this.firstPlayer, this.secondPlayer);
 	}
 
+	public String getRoundState() {
+		return roundState;
+	}
+
+	public void setRoundState(String roundState) {
+		this.roundState = roundState;
+	}
+	
 	private String calculateResult(String firstPlayer, String secondPlayer) {
 		String result = "";
-		if (firstPlayer.equals(secondPlayer)) result = "Draw";
+		if (firstPlayer.equals(secondPlayer)) result = "3";
 		else {
-			if (RockPaperScissorConstant.ROCK.equals(firstPlayer) && RockPaperScissorConstant.PAPER.equals(secondPlayer)) result = "Second Player Wins";
-			else if (RockPaperScissorConstant.ROCK.equals(firstPlayer) && RockPaperScissorConstant.SCISSOR.equals(secondPlayer)) result = "First Player Wins";
-			else if (RockPaperScissorConstant.PAPER.equals(firstPlayer) && RockPaperScissorConstant.SCISSOR.equals(secondPlayer)) result = "Second Player Wins";
-			else if (RockPaperScissorConstant.SCISSOR.equals(firstPlayer) && RockPaperScissorConstant.PAPER.equals(secondPlayer)) result = "First Player Wins";
-			else if (RockPaperScissorConstant.SCISSOR.equals(firstPlayer) && RockPaperScissorConstant.ROCK.equals(secondPlayer)) result = "Second Player Wins";
-			else if (RockPaperScissorConstant.PAPER.equals(firstPlayer) && RockPaperScissorConstant.ROCK.equals(secondPlayer)) result = "First Player Wins";
+			if (RockPaperScissorConstant.ROCK.equals(firstPlayer) && RockPaperScissorConstant.PAPER.equals(secondPlayer)) result = "2";
+			else if (RockPaperScissorConstant.ROCK.equals(firstPlayer) && RockPaperScissorConstant.SCISSOR.equals(secondPlayer)) result = "1";
+			else if (RockPaperScissorConstant.PAPER.equals(firstPlayer) && RockPaperScissorConstant.SCISSOR.equals(secondPlayer)) result = "2";
+			else if (RockPaperScissorConstant.SCISSOR.equals(firstPlayer) && RockPaperScissorConstant.PAPER.equals(secondPlayer)) result = "1";
+			else if (RockPaperScissorConstant.SCISSOR.equals(firstPlayer) && RockPaperScissorConstant.ROCK.equals(secondPlayer)) result = "2";
+			else if (RockPaperScissorConstant.PAPER.equals(firstPlayer) && RockPaperScissorConstant.ROCK.equals(secondPlayer)) result = "1";
 		}
 		return result;
 	}
-	
+
 }
