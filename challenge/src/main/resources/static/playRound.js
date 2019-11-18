@@ -45,6 +45,7 @@ $(document).ready(function() {
 	});
 	$("#restartButton").click(function() {
 		$.post("/restart", function(data) {
+			$("#winner").text("");
 			if (console) console.log(JSON.parse(data).message);
 			theTable.ajax.reload();
 		});

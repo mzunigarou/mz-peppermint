@@ -1,11 +1,3 @@
-var renderValue = function(value) {
-	var textValue = "Unknown";
-	if (value == "1") textValue = "Rock";
-	else if (value == "2") textValue = "Paper";
-	else if (value == "3") textValue = "Scissor";
-	return textValue;
-};
-
 $(document).ready(function() {
 	var theTable = $("#tableResults").DataTable({
 		paging: false,
