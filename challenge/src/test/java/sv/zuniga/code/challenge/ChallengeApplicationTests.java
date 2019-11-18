@@ -20,8 +20,6 @@ import com.google.gson.Gson;
 import sv.zuniga.code.challenge.obj.RockPaperScissor;
 import sv.zuniga.code.challenge.obj.RockPaperScissorConstant;
 
-//@ExtendWith(SpringExtension.class)
-//@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @SpringBootTest
 @AutoConfigureMockMvc
 class ChallengeApplicationTests {
