@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Transaction Compare</title>
+		<link rel="stylesheet" href="/css/jquery-ui.min.css"/>
+		<link rel="stylesheet" href="/css/compare.css" />
+		<link rel="stylesheet" href="/css/jquery.dataTables.min.css" />
+	    <script src="/js/jquery-3.5.1.min.js"></script>
+	    <script src="/js/jquery-ui.min.js"></script>
+	    <script src="/js/jquery.dataTables.min.js"></script>
+	    <script src="/js/compare.js"></script>
+	</head>
+	<body>
+		<div class="mainDiv" align="left">
+			
+			<fieldset class="ui-widget">
+				<legend>Specify Files to Compare</legend>
+				<div align="center">
+					<form id="formId" method="post" enctype="multipart/form-data" action="/compare">
+						<table style="width: 75%;">
+							<colgroup>
+						       <col span="1" style="width: 40%;">
+						       <col span="1" style="width: 40%;">
+						       <col span="1" style="width: 20%;">
+						    </colgroup>
+							<tr>
+								<td>Select File 1:</td>
+								<td><div class="widget"><input id="fileId1" name="file1" type="file" value="Browse"></div></td>
+								<td>&nbsp;</td>
+							</tr>
+							<tr>
+								<td>Select File 2:</td>
+								<td><div class="widget"><input id="fileId2" name="file2" type="file" value="Browse"></div></td>
+								<td><div class="widget"><button id="compareButton">Compare</button></div></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</fieldset>
+			
+			<fieldset id="fieldset1Id" class="ui-widget" style="display: none;">
+				<legend>Comparison Results</legend>
+				<div align="center">
+					<form id="form2Id" method="post" action="/unmatchedReport">
+						<input type="hidden" id="uhId1" name="uhId1" />
+						<input type="hidden" id="uhId2" name="uhId2" />
+						<table class="innerTable">
+							<colgroup>
+						       <col span="1" style="width: 50%;">
+						       <col span="1" style="width: 50%;">
+						    </colgroup>
+							<tr>
+								<td><h4 id="file1Name"></h4></td>
+								<td><h4 id="file2Name"></h4></td>
+							</tr>
+							<tr>
+								<td>
+									<table class="innerTable">
+										<tr><td>Total Records:</td><td><span id="file1TotalRecords"></span></td></tr>
+										<tr><td>Matching Records:</td><td><span id="file1MatchingRecords"></span></td></tr>
+										<tr><td>UnmatchedRecords:</td><td><span id="file1UnmatchedRecords"></span></td></tr>
+									</table>
+								</td>
+								<td>
+									<table class="innerTable">
+										<tr><td>Total Records:</td><td><span id="file2TotalRecords"></span></td></tr>
+										<tr><td>Matching Records:</td><td><span id="file2MatchingRecords"></span></td></tr>
+										<tr><td>UnmatchedRecords:</td><td><span id="file2UnmatchedRecords"></span></td></tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+						<br />
+						<input type="submit" value="Unmatched Report" />
+					</form>
+				</div>
+			</fieldset>
+			
+			<fieldset id="fieldset2Id" class="ui-widget" style="display: none;">
+				<legend>Unmatched Report</legend>
+				<div align="center">
+					<span class="note">*** Highlighted rows are potential match ***</span>
+					<table class="innerTable">
+						<colgroup>
+					       <col span="1" style="width: 50%;">
+					       <col span="1" style="width: 50%;">
+					    </colgroup>
+					    <tr>
+					    	<td>
+						    	<table id="tableResults1" class="display nowrap">
+									<thead>
+										<tr>
+											<th colspan="3" align="left"><h4 id="file1NameR"></h4></th>
+										</tr>
+										<tr>
+											<th>Date</th>
+											<th>Reference</th>
+											<th>Amount</th>
+										</tr>
+									</thead>
+									<tbody id="tableTBody1" class="adjusted"></tbody>
+								</table>
+					    	</td>
+					    	<td>
+						    	<table id="tableResults2" class="display nowrap">
+									<thead>
+										<tr>
+											<th colspan="3" align="left"><h4 id="file2NameR"></h4></th>
+										</tr>
+										<tr>
+											<th>Date</th>
+											<th>Reference</th>
+											<th>Amount</th>
+										</tr>
+									</thead>
+									<tbody id="tableTBody2" class="adjusted"></tbody>
+								</table>
+					    	</td>
+					    </tr>
+				    </table>
+				</div>
+			</fieldset>
+			
+		</div>
+		<div id="dialog" title="Message">
+			<span id="message">&nbsp;</span>
+		</div>
+	</body>
+</html>

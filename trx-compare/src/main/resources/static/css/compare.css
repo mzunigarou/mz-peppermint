@@ -1,0 +1,32 @@
+@charset "ISO-8859-1";
+
+.mainDiv {
+	width: 60%;
+}
+
+.mainDiv fieldset {
+	margin-top: 20px;
+}
+
+.innerTable {
+	width: 75%;
+}
+
+.tableResults1 .tableResults2 {
+	width: 90%;
+}
+
+.adjusted {
+	font-size: 10px;
+}
+
+.highlight {
+	font-weight: bold;
+	background-color: skyblue !important;
+}
+
+.note {
+	font-weight: bold;
+	font-style: italic;
+	color: skyblue;
+}
